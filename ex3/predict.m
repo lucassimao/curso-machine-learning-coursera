@@ -22,10 +22,15 @@ p = zeros(size(X, 1), 1);
 %
 
 
-
-
-
-
+%The matrices Theta1 and Theta2 will now be in your Octave environment
+% Theta1 has size 25 x 401
+% Theta2 has size 10 x 26
+% X é mx400
+% m eh o numero de amostras
+hidden_layer = sigmoid(Theta1 * [ ones(m,1) X]'); % vai ser 25 por m 
+output_layer = sigmoid(Theta2 * [ ones(1,m) ; hidden_layer]); % vai ser 10xm
+output_layer = output_layer'; % m linhas e 10 colunas
+[v,p] = max(output_layer, [], 2);
 
 
 
